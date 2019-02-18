@@ -12,24 +12,34 @@
 </head>
 
 <body>
-    <div class="container-fluid bg-img">
-        <div class="row">
-            <div class="col-12 d-flex align-items-middle" id="overlay">
-                <div class="row d-flex">
-                    <form class="form-inline col-12" onsubmit="app.controllers.itunesCtrl.getMusic(event)">
-                        <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
-                        <div class="form-group shadow">
-                            <input type="text" class="form-control" name="artist" placeholder="Artist Name" />
-                            <button type="submit" class="btn btn-primary" id="get-music-button">Get Music</button>
-                        </div>
-                    </form>
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="./assets/MusicVideos.mp4" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <form class="form-inline d-flex flex-row h-100 text-center align-items-center justify-content-center"
+                onsubmit="app.controllers.itunesCtrl.getMusic(event)">
+                <div class="col-7 form-group children d-flex align-items-center text-white justify-content-center">
+                    <input type="text" class="form-control shadow w-50" name="artist"
+                        placeholder="Type artist here for iTunes info..." alt="Artist" id="artist-name" />
+                    <button type="submit" class="btn btn-info shadow ml-1" id="get-music-button">Get
+                        Music</button>
                 </div>
-            </div>
+            </form>
+        </div>
+    </header>
+    <div class="container-fluid" id="artists">
+        <div id="content">
+
+        </div>
+        <div class="row" id="song-list">
+
         </div>
     </div>
-    <div class="row d-flex " id="song-list">
 
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="module" src="app/main.js"></script>
 </body>

@@ -8,19 +8,29 @@ export default class Song {
         this.price = song.collectionPrice
         this.preview = song.previewUrl
     }
+    getArtist() {
+        return `<div class="row bg-dark">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+        <h1 class="text-center text-white p-2"><u>${this.artist} music:</u></h1>
+        </div>
+        </div>`
+    }
 
     getTemplate() {
         return `
-         <div class="card col-3">
-  <img class="card-img-top" src="${this.albumArt}">
-  <div class="card-body">
-    <h5 class="card-title">${this.artist}</h5>
-    <p class="card-text">${this.title}"</p>       
-    <audio controls class="w-100">
+        <audio id="${this.title}">
         <source src="${this.preview}"></audio>
-         </audio></a>
+         <div class="card col-6 col-sm-4 col-md-3 col-lg-2 bg-dark border border-white rounded" onclick="document.getElementById('${this.title}').play()">
+  <img class="card-img-top" src="${this.albumArt}">
+  <div class="card-body">  
+    <p class="card-text text-white">${this.title}</p>
+    <p class="card-text text-white">price: $${this.price}</p>
+    <p class="card-text text-white">CLICK FOR PREVIEW</p>         
   </div >
-</div >
-            `
+</div >`
     }
 }
+
+/*  <audio controls class="w-100">
+        <source src="${this.preview}"></audio>
+         </audio></a> */
